@@ -8,7 +8,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,6 +21,12 @@ import android.widget.Button;
  */
 public class HomeFragment extends Fragment {
     Button toMenuBtn;
+    ListView storeList;
+
+    ArrayList<Store> arrayStore;
+    StoreAdapter adapter;
+
+    Goto _goto;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,16 +71,33 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        _goto = (Goto) getActivity();
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        toMenuBtn = (Button) view.findViewById(R.id.toMenu);
-        toMenuBtn.setOnClickListener(new View.OnClickListener() {
+
+        storeList = (ListView) view.findViewById(R.id.storeListView);
+        arrayStore = new ArrayList<Store>();
+        AddArrayStore();
+        adapter = new StoreAdapter(getActivity(), R.layout.store_item, arrayStore);
+        storeList.setAdapter(adapter);
+
+        storeList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View view) {
-                getParentFragmentManager().beginTransaction().replace(R.id.frameContainer, new MenuFragment()).commit();
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                _goto.GotoMenu(arrayStore.get(i));
             }
         });
 
         return view;
+    }
+
+    private void AddArrayStore(){
+        arrayStore.add(new Store("Ong Bau", R.drawable.e563272c9ad83c099901902c0a7056eb,R.drawable.e563272c9ad83c099901902c0a7056eb, "Quan ngon UTE"));
+        arrayStore.add(new Store("Dat Ngo", R.drawable.canteen, R.drawable.canteen,"Sieu Ngon"));
+        arrayStore.add(new Store("Phuong Nam", R.drawable.seafood,R.drawable.seafood, "Quan ngon UTE"));
+        arrayStore.add(new Store("Phuong Nam", R.drawable.quancom,R.drawable.quancom, "Quan ngon UTE"));
+        arrayStore.add(new Store("Phuong Nam", R.drawable.canteen, R.drawable.canteen,"Quan ngon UTE"));
+        arrayStore.add(new Store("Phuong Nam", R.drawable.seafood, R.drawable.seafood,"Quan ngon UTE"));
     }
 }

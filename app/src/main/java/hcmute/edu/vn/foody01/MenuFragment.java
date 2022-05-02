@@ -7,8 +7,14 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,7 +22,18 @@ import android.widget.Toast;
  * create an instance of this fragment.
  */
 public class MenuFragment extends Fragment {
+    private Store store;
+
     Button toBookingBtn;
+    TextView storeName;
+    ImageView storeImage;
+    ImageView storeCoverImage;
+    ListView dishListView;
+
+    ArrayList<Dish> arrayDish;
+    DishAdapter adapter;
+    Goto _goto;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -28,6 +45,10 @@ public class MenuFragment extends Fragment {
 
     public MenuFragment() {
         // Required empty public constructor
+    }
+
+    public void setStore(Store store) {
+        this.store = store;
     }
 
     /**
@@ -60,16 +81,40 @@ public class MenuFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        _goto = (Goto) getActivity();
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_menu, container, false);
-        toBookingBtn = (Button) view.findViewById(R.id.toBooking);
-        toBookingBtn.setOnClickListener(new View.OnClickListener() {
+
+        storeName = (TextView) view.findViewById(R.id.storeNameMenu);
+        storeName.setText(store.getName());
+
+        storeImage = (ImageView) view.findViewById(R.id.menuStoreImage);
+        storeImage.setImageResource(store.getImage());
+
+        storeCoverImage = (ImageView) view.findViewById(R.id.menuCoverImage);
+        storeCoverImage.setImageResource(store.getCoverImage());
+
+        dishListView = (ListView) view.findViewById(R.id.dishListView);
+        arrayDish = new ArrayList<Dish>();
+        AddArrayDish();
+        adapter = new DishAdapter(getActivity(), R.layout.dish_item, arrayDish);
+        dishListView.setAdapter(adapter);
+
+        dishListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View view) {
-                getParentFragmentManager().beginTransaction().replace(R.id.frameContainer, new BookingFragment()).commit();
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                _goto.GotoBooking(arrayDish.get(i));
             }
         });
 
         return view;
+    }
+
+    private void AddArrayDish(){
+        arrayDish.add(new Dish("Com chien 1", R.drawable.comchien, "com ngon", 30000));
+        arrayDish.add(new Dish("Com chien 2", R.drawable.comchien, "com ngon", 40000));
+        arrayDish.add(new Dish("Com chien 3", R.drawable.comchien, "com ngon", 80000));
+        arrayDish.add(new Dish("Com chien 4", R.drawable.comchien, "com ngon", 100000));
     }
 }

@@ -10,7 +10,7 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Goto{
     BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +33,26 @@ public class MainActivity extends AppCompatActivity {
                 }else if(id == R.id.settingItem){
                     fragment = new SettingsFragment();
                 }
-                getSupportFragmentManager().beginTransaction().replace(R.id.frameContainer, fragment).commit();
+                gotoFragment(fragment);
                 return true;
             }
         });
+    }
+
+    private void gotoFragment(Fragment fragment){
+        getSupportFragmentManager().beginTransaction().replace(R.id.frameContainer, fragment).commit();
+    }
+
+    public void GotoMenu(Store store) {
+        MenuFragment menuFragment = new MenuFragment();
+        menuFragment.setStore(store);
+        gotoFragment(menuFragment);
+    }
+
+    @Override
+    public void GotoBooking(Dish dish) {
+        BookingFragment bookingFragment = new BookingFragment();
+        bookingFragment.setDish(dish);
+        gotoFragment(bookingFragment);
     }
 }

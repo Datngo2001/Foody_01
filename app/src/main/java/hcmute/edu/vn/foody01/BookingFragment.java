@@ -14,6 +14,11 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class BookingFragment extends Fragment {
+    private Dish dish;
+
+    public void setDish(Dish dish) {
+        this.dish = dish;
+    }
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
