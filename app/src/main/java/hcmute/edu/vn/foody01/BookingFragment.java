@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,6 +17,10 @@ import android.view.ViewGroup;
  */
 public class BookingFragment extends Fragment {
     private Dish dish;
+    ImageView dishImage;
+    TextView dishName;
+    TextView dishDescription;
+    TextView dishPrice;
 
     public void setDish(Dish dish) {
         this.dish = dish;
@@ -64,6 +70,18 @@ public class BookingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_booking, container, false);
+        View view = inflater.inflate(R.layout.fragment_booking, container, false);
+
+        dishImage = (ImageView) view.findViewById(R.id.dishImageBooking);
+        dishName = (TextView) view.findViewById(R.id.dishNameBooking);
+        dishDescription = (TextView) view.findViewById(R.id.dishDescriptionBooking);
+        dishPrice = (TextView) view.findViewById(R.id.totalPrice);
+
+        dishImage.setImageResource(dish.getImage());
+        dishName.setText(dish.getName());
+        dishDescription.setText(dish.getDescription());
+        dishPrice.setText(Long.toString(dish.getPrice()));
+
+        return view;
     }
 }
