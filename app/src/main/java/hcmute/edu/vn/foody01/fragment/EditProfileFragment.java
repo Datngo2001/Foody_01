@@ -1,15 +1,19 @@
 package hcmute.edu.vn.foody01.fragment;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
 
 import hcmute.edu.vn.foody01.Goto;
 import hcmute.edu.vn.foody01.R;
+import hcmute.edu.vn.foody01.data.UserDbHelper;
 import hcmute.edu.vn.foody01.fragment.ProfileFragment;
 import hcmute.edu.vn.foody01.model.User;
 
@@ -22,6 +26,7 @@ public class EditProfileFragment extends Fragment {
 
     Goto _goto;
     Button saveBtn, cancelBtn;
+    EditText username, email, phone, address;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -83,11 +88,35 @@ public class EditProfileFragment extends Fragment {
                 returnToProfile();
             }
         });
+        username = (EditText) view.findViewById(R.id.editUsername);
+        email = (EditText) view.findViewById(R.id.editUserEmail);
+        phone = (EditText) view.findViewById(R.id.editUserPhone);
+        address = (EditText) view.findViewById(R.id.editUserAddress);
+        if(user !=null){
+            username.setText(user.getUsername());
+            email.setText(user.getEmail());
+            phone.setText(user.getPhone());
+            address.setText(user.getAddress());
+        }
         return view;
     }
 
     private void saveData(){
+        UserDbHelper helper = new UserDbHelper(this.getContext());
+        SQLiteDatabase db = helper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("username", username.getText().toString());
+        values.put("email", email.getText().toString());
+        values.put("phone", phone.getText().toString());
+        values.put("address", address.getText().toString());
 
+        if(user == null){
+            db.insert("user", null, values);
+        }else{
+            String whereClause = "username = '" + user.getUsername() + "'";
+            db.update("user", values, whereClause,null);
+        }
+        returnToProfile();
     }
 
     private  void  returnToProfile(){

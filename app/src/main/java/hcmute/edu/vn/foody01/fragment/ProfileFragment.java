@@ -1,5 +1,7 @@
 package hcmute.edu.vn.foody01.fragment;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,11 +9,14 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import hcmute.edu.vn.foody01.Goto;
 import hcmute.edu.vn.foody01.R;
+import hcmute.edu.vn.foody01.data.UserDbHelper;
 import hcmute.edu.vn.foody01.model.User;
 
 /**
@@ -24,6 +29,7 @@ public class ProfileFragment extends Fragment {
 
     Goto _goto;
     FloatingActionButton editButton;
+    TextView username, email, phone, address;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -79,11 +85,45 @@ public class ProfileFragment extends Fragment {
                 openEditForm();
             }
         });
+        username = (TextView) view.findViewById(R.id.profileUsername);
+        email = (TextView) view.findViewById(R.id.profileEmail);
+        phone = (TextView) view.findViewById(R.id.profilePhone);
+        address = (TextView) view.findViewById(R.id.profileAddress);
+
+        ReadCurrentUser();
+        if(currentUser == null){
+            return view;
+        }
+        username.setText(currentUser.getUsername());
+        email.setText(currentUser.getEmail());
+        phone.setText(currentUser.getPhone());
+        address.setText(currentUser.getAddress());
 
         return view;
     }
 
     private void openEditForm(){
         _goto.GotoEditProfile(currentUser);
+    }
+
+    private void ReadCurrentUser(){
+        UserDbHelper helper = new UserDbHelper(this.getContext());
+        SQLiteDatabase db = helper.getReadableDatabase();
+        String projections[] = {"username", "email", "phone", "address"};
+        Cursor c = db.query("user", projections, null, null, null,null, null);
+        if (c == null){
+            currentUser = null;
+            return;
+        }else if(c.getCount() > 0){
+            c.moveToPosition(0);
+            currentUser = new User();
+            currentUser.setUsername(c.getString(0));
+            currentUser.setEmail(c.getString(1));
+            currentUser.setPhone(c.getString(2));
+            currentUser.setAddress(c.getString(3));
+        }else{
+            currentUser = null;
+        }
+        c.close();
     }
 }
