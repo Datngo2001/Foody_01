@@ -10,6 +10,16 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
+import hcmute.edu.vn.foody01.fragment.BookingFragment;
+import hcmute.edu.vn.foody01.fragment.EditProfileFragment;
+import hcmute.edu.vn.foody01.fragment.HomeFragment;
+import hcmute.edu.vn.foody01.fragment.MenuFragment;
+import hcmute.edu.vn.foody01.fragment.ProfileFragment;
+import hcmute.edu.vn.foody01.fragment.SettingsFragment;
+import hcmute.edu.vn.foody01.model.Dish;
+import hcmute.edu.vn.foody01.model.Store;
+import hcmute.edu.vn.foody01.model.User;
+
 public class MainActivity extends AppCompatActivity implements Goto{
     BottomNavigationView bottomNavigationView;
     @Override
@@ -54,5 +64,18 @@ public class MainActivity extends AppCompatActivity implements Goto{
         BookingFragment bookingFragment = new BookingFragment();
         bookingFragment.setDish(dish);
         gotoFragment(bookingFragment);
+    }
+
+    @Override
+    public void GotoEditProfile(User user) {
+        EditProfileFragment editProfileFragment = new EditProfileFragment();
+        editProfileFragment.setUser(user);
+        gotoFragment(editProfileFragment);
+    }
+
+    @Override
+    public void GotoProfile() {
+        ProfileFragment profileFragment = new ProfileFragment();
+        gotoFragment(profileFragment);
     }
 }

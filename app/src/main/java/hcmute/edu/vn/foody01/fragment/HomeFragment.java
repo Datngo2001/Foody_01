@@ -1,7 +1,6 @@
-package hcmute.edu.vn.foody01;
+package hcmute.edu.vn.foody01.fragment;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
 
 import androidx.fragment.app.Fragment;
 
@@ -13,6 +12,11 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+
+import hcmute.edu.vn.foody01.Goto;
+import hcmute.edu.vn.foody01.R;
+import hcmute.edu.vn.foody01.list_adapter.StoreAdapter;
+import hcmute.edu.vn.foody01.model.Store;
 
 /**
  * A simple {@link Fragment} subclass.

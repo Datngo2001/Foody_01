@@ -1,16 +1,16 @@
-package hcmute.edu.vn.foody01;
+package hcmute.edu.vn.foody01.model;
 
-public class Store {
+public class Dish {
     private String name;
     private int image;
-    private int coverImage;
     private String description;
+    private long price;
 
-    public Store(String name, int image, int coverImage, String description) {
+    public Dish(String name, int image, String description, long price) {
         this.name = name;
         this.image = image;
         this.description = description;
-        this.coverImage = coverImage;
+        this.price = price;
     }
 
     public String getName() {
@@ -37,12 +37,11 @@ public class Store {
         this.description = description;
     }
 
-    public int getCoverImage() {
-        return coverImage;
+    public long getPrice() {
+        return price;
     }
 
-    public void setCoverImage(int coverImage) {
-        this.coverImage = coverImage;
+    public void setPrice(long price) {
+        this.price = price;
     }
-
 }

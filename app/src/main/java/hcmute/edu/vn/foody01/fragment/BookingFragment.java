@@ -1,4 +1,4 @@
-package hcmute.edu.vn.foody01;
+package hcmute.edu.vn.foody01.fragment;
 
 import android.os.Bundle;
 
@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import hcmute.edu.vn.foody01.R;
+import hcmute.edu.vn.foody01.model.Dish;
 
 /**
  * A simple {@link Fragment} subclass.

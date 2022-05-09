@@ -1,4 +1,4 @@
-package hcmute.edu.vn.foody01;
+package hcmute.edu.vn.foody01.list_adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,21 +10,24 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class DishAdapter extends BaseAdapter {
+import hcmute.edu.vn.foody01.R;
+import hcmute.edu.vn.foody01.model.Store;
+
+public class StoreAdapter extends BaseAdapter {
 
     private Context context;
     private int layout;
-    private List<Dish> dishList;
+    private List<Store> storeList;
 
-    public DishAdapter(Context context, int layout, List<Dish> storeList) {
+    public StoreAdapter(Context context, int layout, List<Store> storeList) {
         this.context = context;
         this.layout = layout;
-        this.dishList = storeList;
+        this.storeList = storeList;
     }
 
     @Override
     public int getCount() {
-        return dishList.size();
+        return storeList.size();
     }
 
     @Override
@@ -41,7 +44,6 @@ public class DishAdapter extends BaseAdapter {
         ImageView image;
         TextView txtTen;
         TextView txtDescription;
-        TextView txtPrice;
     }
 
     @Override
@@ -51,20 +53,18 @@ public class DishAdapter extends BaseAdapter {
             holder = new ViewHolder();
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(layout, null);
-            holder.txtTen = (TextView) view.findViewById(R.id.dishName);
-            holder.image = (ImageView) view.findViewById(R.id.dishImage);
-            holder.txtDescription = (TextView) view.findViewById(R.id.dishDescription);
-            holder.txtPrice = (TextView) view.findViewById(R.id.dishPrice);
+            holder.txtTen = (TextView) view.findViewById(R.id.storeName);
+            holder.image = (ImageView) view.findViewById(R.id.storeImage);
+            holder.txtDescription = (TextView) view.findViewById(R.id.storeDescription);
             view.setTag(holder);
         }else{
             holder = (ViewHolder) view.getTag();
         }
 
-        Dish dish = dishList.get(i);
-        holder.txtTen.setText(dish.getName());
-        holder.txtDescription.setText(dish.getDescription());
-        holder.image.setImageResource(dish.getImage());
-        holder.txtPrice.setText(Long.toString(dish.getPrice()));
+        Store store = storeList.get(i);
+        holder.txtTen.setText(store.getName());
+        holder.txtDescription.setText(store.getDescription());
+        holder.image.setImageResource(store.getImage());
         return view;
     }
 }

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/fistFragment"
-        android:name="hcmute.edu.vn.foody01.HomeFragment"
+        android:name="hcmute.edu.vn.foody01.fragment.HomeFragment"
         android:label="fragment_fist"
         tools:layout="@layout/fragment_home" >
         <action
@@ -16,17 +16,17 @@
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
-        android:name="hcmute.edu.vn.foody01.ProfileFragment"
+        android:name="hcmute.edu.vn.foody01.fragment.ProfileFragment"
         android:label="fragment_second"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/thirdFragment"
-        android:name="hcmute.edu.vn.foody01.SettingsFragment"
+        android:name="hcmute.edu.vn.foody01.fragment.SettingsFragment"
         android:label="fragment_third"
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/menuFragment"
-        android:name="hcmute.edu.vn.foody01.MenuFragment"
+        android:name="hcmute.edu.vn.foody01.fragment.MenuFragment"
         android:label="fragment_menu"
         tools:layout="@layout/fragment_menu" >
         <action
@@ -35,7 +35,7 @@
     </fragment>
     <fragment
         android:id="@+id/bookingFragment"
-        android:name="hcmute.edu.vn.foody01.BookingFragment"
+        android:name="hcmute.edu.vn.foody01.fragment.BookingFragment"
         android:label="fragment_booking"
         tools:layout="@layout/fragment_booking" />
 </navigation>
