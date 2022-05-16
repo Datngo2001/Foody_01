@@ -8,7 +8,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/linear_color_background">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -87,7 +88,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="100.000 đ"
+            android:text="100.000 "
             android:textAlignment="textEnd"
             android:textSize="50dp"
             android:textStyle="bold"
@@ -102,7 +103,7 @@
             android:id="@+id/radioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginTop="5dp"
             app:layout_constraintBottom_toTopOf="@+id/totalPrice"
             app:layout_constraintTop_toBottomOf="@id/textView5"
             tools:layout_editor_absoluteX="10dp"
@@ -112,6 +113,7 @@
                 android:id="@+id/radioButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/backgroundeditview"
                 android:text="Thanh toan COD"
                 android:textSize="30dp" />
 
@@ -119,6 +121,8 @@
                 android:id="@+id/radioButton2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/backgroundeditview"
                 android:text="Momo"
                 android:textSize="30dp" />
         </RadioGroup>
@@ -126,10 +130,13 @@
         <TextView
             android:id="@+id/textView5"
             android:layout_width="match_parent"
-            android:layout_height="140dp"
+            android:layout_height="120dp"
             android:layout_margin="10dp"
+            android:layout_marginTop="10dp"
             android:text="So 18, Phuong Linh Dong, Thu Duc"
             android:textSize="30dp"
+            android:textAlignment="center"
+            android:background="@drawable/backgroundeditview"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.526"

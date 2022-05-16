@@ -9,12 +9,15 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/linear_color_background">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imageView"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            app:strokeWidth="3dp"
+            app:strokeColor="@color/black"
             android:src="@drawable/avatar"
             app:layout_constraintBottom_toTopOf="@+id/circularRevealCardView"
             app:layout_constraintEnd_toEndOf="parent"
@@ -47,81 +50,91 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.487"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@id/profileUsername"
             app:layout_constraintVertical_bias="0.93"
             app:strokeWidth="1dp"
-            app:strokeColor="@color/black">
+            app:strokeColor="@color/black"
+            app:cardCornerRadius="50dp">
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Email:"
-                    android:textSize="20dp"
-                    app:layout_constraintBottom_toTopOf="@+id/profileEmail"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.047"
-                    app:layout_constraintStart_toStartOf="parent" />
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Email:"-->
+<!--                    android:textSize="20dp"-->
+<!--                    app:layout_constraintBottom_toTopOf="@+id/profileEmail"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintHorizontal_bias="0.047"-->
+<!--                    app:layout_constraintStart_toStartOf="parent" />-->
 
                 <TextView
                     android:id="@+id/profileEmail"
                     android:layout_width="340dp"
                     android:layout_height="wrap_content"
                     android:text=""
+                    android:background="@drawable/backgroundeditview"
                     android:textSize="25dp"
+                    android:hint="Email"
+                    android:textAlignment="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.141" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Phone:"
-                    android:textSize="20dp"
-                    app:layout_constraintBottom_toTopOf="@+id/profilePhone"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.045"
-                    app:layout_constraintStart_toStartOf="parent" />
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Phone:"-->
+<!--                    android:textSize="20dp"-->
+<!--                    app:layout_constraintBottom_toTopOf="@+id/profilePhone"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintHorizontal_bias="0.045"-->
+<!--                    app:layout_constraintStart_toStartOf="parent" />-->
+
+                <!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Adress:"-->
+<!--                    android:textSize="20dp"-->
+<!--                    app:layout_constraintBottom_toTopOf="@+id/profileAddress"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintHorizontal_bias="0.045"-->
+<!--                    app:layout_constraintStart_toStartOf="parent" />-->
 
                 <TextView
                     android:id="@+id/profilePhone"
                     android:layout_width="340dp"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/backgroundeditview"
+                    android:hint="Phone"
                     android:text=""
+                    android:textAlignment="center"
                     android:textSize="25dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.466"
+                    app:layout_constraintHorizontal_bias="0.533"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.452" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Adress:"
-                    android:textSize="20dp"
-                    app:layout_constraintBottom_toTopOf="@+id/profileAddress"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.045"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintVertical_bias="0.427" />
 
                 <TextView
                     android:id="@+id/profileAddress"
                     android:layout_width="340dp"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/backgroundeditview"
+                    android:hint="Address"
                     android:text=""
+                    android:textAlignment="center"
                     android:textSize="25dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.466"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.689" />
+                    app:layout_constraintVertical_bias="0.712" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.circularreveal.cardview.CircularRevealCardView>
@@ -132,12 +145,12 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:src="@android:drawable/ic_menu_edit"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/circularRevealCardView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.95"
+            app:layout_constraintHorizontal_bias="0.94"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.98"
+            app:layout_constraintVertical_bias="0.912"
             app:rippleColor="@color/white" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

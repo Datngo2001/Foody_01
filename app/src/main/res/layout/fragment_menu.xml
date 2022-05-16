@@ -9,7 +9,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/linear_color_background">
 
         <ImageView
             android:id="@+id/menuCoverImage"
@@ -31,7 +32,9 @@
             android:src="@drawable/e563272c9ad83c099901902c0a7056eb"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:shapeAppearanceOverlay="@style/roundedImageViewRounded" />
+            app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/black"/>
 
         <TextView
             android:id="@+id/storeNameMenu"
@@ -49,7 +52,7 @@
 
     <ListView
         android:id="@+id/dishListView"
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp" />
 </LinearLayout>

@@ -3,6 +3,26 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/NAM3_HK2/PROJECTS/Foody_01/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2175" />
+        <entry key="..\:/NAM3_HK2/PROJECTS/Foody_01/app/src/main/res/drawable/background_edit_store.xml" value="0.2435" />
+        <entry key="..\:/NAM3_HK2/PROJECTS/Foody_01/app/src/main/res/drawable/background_nav.xml" value="0.2435" />
+        <entry key="..\:/NAM3_HK2/PROJECTS/Foody_01/app/src/main/res/drawable/background_white.xml" value="0.2435" />
+        <entry key="..\:/NAM3_HK2/PROJECTS/Foody_01/app/src/main/res/drawable/backgroundeditview.xml" value="0.2435" />
+        <entry key="..\:/NAM3_HK2/PROJECTS/Foody_01/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.2175" />
+        <entry key="..\:/NAM3_HK2/PROJECTS/Foody_01/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.2175" />
+        <entry key="..\:/NAM3_HK2/PROJECTS/Foody_01/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.2175" />
+        <entry key="..\:/NAM3_HK2/PROJECTS/Foody_01/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2175" />
+        <entry key="..\:/NAM3_HK2/PROJECTS/Foody_01/app/src/main/res/drawable/linear_color_background.xml" value="0.2435" />
+        <entry key="..\:/NAM3_HK2/PROJECTS/Foody_01/app/src/main/res/drawable/stroke.xml" value="0.2435" />
+        <entry key="..\:/NAM3_HK2/PROJECTS/Foody_01/app/src/main/res/layout/activity_main.xml" value="0.17617753623188406" />
+        <entry key="..\:/NAM3_HK2/PROJECTS/Foody_01/app/src/main/res/layout/dish_item.xml" value="0.22826086956521738" />
+        <entry key="..\:/NAM3_HK2/PROJECTS/Foody_01/app/src/main/res/layout/fragment_booking.xml" value="0.17617753623188406" />
+        <entry key="..\:/NAM3_HK2/PROJECTS/Foody_01/app/src/main/res/layout/fragment_editprofile.xml" value="0.2" />
+        <entry key="..\:/NAM3_HK2/PROJECTS/Foody_01/app/src/main/res/layout/fragment_home.xml" value="0.17617753623188406" />
+        <entry key="..\:/NAM3_HK2/PROJECTS/Foody_01/app/src/main/res/layout/fragment_menu.xml" value="0.2" />
+        <entry key="..\:/NAM3_HK2/PROJECTS/Foody_01/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
+        <entry key="..\:/NAM3_HK2/PROJECTS/Foody_01/app/src/main/res/layout/fragment_settings.xml" value="0.22826086956521738" />
+        <entry key="..\:/NAM3_HK2/PROJECTS/Foody_01/app/src/main/res/layout/store_item.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/ngomi/AndroidStudioProjects/Foody_01/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/ngomi/AndroidStudioProjects/Foody_01/app/src/main/res/layout/dish_item.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/ngomi/AndroidStudioProjects/Foody_01/app/src/main/res/layout/fragment_booking.xml" value="0.22" />
